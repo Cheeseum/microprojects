@@ -12,8 +12,9 @@ class @Game
 
     update: =>
         @world.update()
-        @root.setTimeout(@update, 0)
+        @root.setTimeout(@update, 500)
 
     updateView: (pet) =>
-        @loveBar.css {width: "#{pet.happiness}%"}
-        @hungerBar.css {width: "#{pet.hunger}%"}
+        if pet == @pet
+            @loveBar.css {width: "#{pet.happiness}%"}
+            @hungerBar.css {width: "#{pet.hunger}%"}

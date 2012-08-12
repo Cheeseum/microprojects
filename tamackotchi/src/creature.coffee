@@ -3,12 +3,14 @@ class @Creature
     constructor: (@world) ->
         @status = constants.CreatureStatus.bored
         @hunger = constants.maxHunger
-        @happiness = 0
+        @happiness = constants.maxHappiness / 2
         @age = 0
 
     eat: (value) =>
         @hunger += value
-        @hunger = constants.maxHunger if @hunger >= constants.maxHunger
+        if @hunger >= constants.maxHunger
+            @hunger = constants.maxHunger
+            @happiness -= 20
 
         @world.updateView(this)
 
@@ -18,4 +20,11 @@ class @Creature
 
         @world.updateView(this)
 
+    decreaseHappiness: (value) =>
+        @happiness -= value
+        @happiness = 0 if @happiness < 0
+
+        @world.updateView(this)
+
     update: =>
+        @decreaseHappiness(1)
