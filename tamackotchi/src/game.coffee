@@ -1,17 +1,14 @@
 class @Game
+    root: null
     world: null
-    
-    constructor: () ->
-        this.world = new World()
-    
+
+    constructor: (root) ->
+        @world = new World()
+
     run: =>
-        this.world.add_creature(new Creature())
-        this.update()
-        this.draw(this.context)
+        @world.add_creature(new Creature())
+        @update()
 
     update: =>
-        this.world.update()
-        window.setTimeout(this.update, 0)
-
-    draw: =>
-        window.requestAnimFrame(this.draw, 0)
+        @world.update()
+        @root.setTimeout(@update, 0)

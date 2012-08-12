@@ -6,6 +6,5 @@ class @World
         @creatures.push(c)
 
     update: =>
-        for c in @creatures
-            c.update()
+        c.update() for c in @creatures
 
