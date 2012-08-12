@@ -1,7 +1,11 @@
 class @World
-    creatures: []
+    constructor: ->
+        @creatures = []
+
+    add_creature: (c) =>
+        @creatures.push(c)
 
     update: =>
-        for c in this.creatures
+        for c in @creatures
             c.update()
 
