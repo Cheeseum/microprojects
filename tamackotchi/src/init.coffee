@@ -1,7 +1,7 @@
-$ ->
+$ =>
 
   @requestAnimFrame =
-    @requestAnimationFrame or
+    @requestAnimationFrame       or
     @webkitRequestAnimationFrame or
     @mozRequestAnimationFrame    or
     @oRequestAnimationFrame      or
