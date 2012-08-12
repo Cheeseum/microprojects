@@ -1,0 +1,24 @@
+#info-box {
+    width: 96px;
+}
+
+.empty-bar {
+    min-width: 96px;
+    min-height: 32px;
+    background-image: url('img/statusbar.gif');
+    background-position: -32px 64px;
+}
+
+#love-bar {
+    width: 96px;
+    min-height: 32px;
+    background-image: url('img/statusbar.gif');
+    background-position: -32px 0px;
+}
+
+#hunger-bar {
+    width: 96px;
+    min-height: 32px;
+    background-image: url('img/statusbar.gif');
+    background-position: -32px 32px;
+}

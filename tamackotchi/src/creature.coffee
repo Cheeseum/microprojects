@@ -13,3 +13,5 @@ class @Creature
     increaseHappiness: (value) =>
         @happiness += value
         @happiness = constants.maxHappiness if @hunger >= constants.maxHappiness
+
+    update: =>
