@@ -1,98 +1,118 @@
-root = exports ? this
+@sound = (=>
+  # dictionary of sound files
+  _soundFiles = {}
 
-root.sound =
-    # dictionary of sound files
-    soundFiles: {}
+  # element to append the audio files to
+  _parent = null
 
-    # element to append the audio files to
-    parent: null
+  _showError = (err) =>
+    @console.log err
 
-    showError: (err) ->
-      console.log err
+  init = (p) =>
+    _parent: p
 
-    init: (p) ->
-      parent = p
+  isRegistered = (name) =>
+    _soundFiles[name]?
 
-    isRegistered: (name) ->
-      soundFiles[name]?
+  isPaused = (name) =>
+    if isRegistered(name) then _soundFiles[name].paused
+    else false
 
-    isPaused: (name) ->
-      return soundFiles[name].paused if sound.isRegistered(name)
-      false
+  setVolume = (name, vol) =>
+    if isRegistered(name)
+      s = _soundFiles[name]
+      s.volume = vol
+      s.volume = _soundFiles[name].volume
 
-    setVolume: (name, vol) ->
-      if sound.isRegistered(name)
-        s = soundFiles[name]
-        s.volume = vol
-        s.volume = soundFiles[name].volume
+  increaseVolume = (name, amount) =>
+    amount = amount ? 0.1
 
-    increaseVolume: (name, amount) ->
-      amount = amount or 0.1
-      if sound.isRegistered(name)
-        s = soundFiles[name]
-        s.volume += amount
-        s.volume = soundFiles[name].volume
+    if isRegistered(name)
+      s = _soundFiles[name]
+      s.volume += amount
+      s.volume = _soundFiles[name].volume
 
-    decreaseVolume: (name, amount) ->
-      sound.increaseVolume name, -amount
+  decreaseVolume = (name, amount) =>
+    increaseVolume(name, -amount)
 
-    play: (name, loop_) ->
-      unless sound.isRegistered(name)
-        showError name + " is not registered in the sound module!"
-        return
-      s = soundFiles[name]
-      loop_ = loop_ or false
+  play = (name, loop_) =>
+    unless isRegistered(name)
+      showError name + " is not registered in the sound module!"
+      return
 
-      # audio element is null OR audio hasn't stopped playing
-      if s.audioElement is null or not s.audioElement.ended
-        if s.audioElement isnt null
+    s = _soundFiles[name]
+    loop_ = loop_ ? false
 
-          # get ready to delete the element that is currently
-          # playing the sound once it finished
-          s.audioElement.addEventListener "ended", ->
-            parent.removeChild this
+    # audio element is null OR audio hasn't stopped playing
+    if s.audioElement is null or not s.audioElement.ended
+      if s.audioElement isnt null
 
-        s.audioElement = root.document.createElement("audio")
-        s.audioElement.setAttribute "src", s.src
-        s.audioElement.volume = s.volume
-        s.audioElement.setAttribute "loop", ""  if loop_
-        parent.appendChild s.audioElement
+        # get ready to delete the element that is currently
+        # playing the sound once it finished
+        s.audioElement.addEventListener "ended", ->
+          _parent.removeChild this
 
-      s.audioElement.play()
-      s.playing = true
-      s.paused = false
-      s.stopped = false
+      s.audioElement = @document.createElement("audio")
+      s.audioElement.setAttribute "src", s.src
+      s.audioElement.volume = s.volume
 
-    pause: (name) ->
-      unless sound.isRegistered(name)
-        showError name + " is not registered in the sound module!"
-        return
-      s = soundFiles[name]
-      s.audioElement.pause()
-      s.paused = true
+      if loop_
+        s.audioElement.setAttribute "loop_", ""
 
-    stop: (name) ->
-      unless sound.isRegistered(name)
-        showError name + " is not registered in the sound module!"
-        return
-      s = soundFiles[name]
-      if s.audioElement
-        parent.removeChild s.audioElement
-        s.audioElement = null
-        s.stopped = true
+      _parent.appendChild s.audioElement
 
-    stopAll: ->
-      soundName = undefined
-      for soundName of soundFiles
-        sound.stop soundName
+    s.audioElement.play()
+    s.playing = true
+    s.paused = false
+    s.stopped = false
 
-    register: (name, file) ->
-      if sound.isRegistered(name)
-        showError name + " is already registered!"
-        return
-      soundFiles[name] =
-        src: file
-        stopped: true
-        paused: false
-        volume: 0.5
-        audioElement: null
+  pause = (name) =>
+    unless isRegistered(name)
+      showError name + " is not registered in the sound module!"
+      return
+
+    s = _soundFiles[name]
+    s.audioElement.pause()
+    s.paused = true
+
+  stop = (name) =>
+    unless isRegistered(name)
+      showError name + " is not registered in the sound module!"
+      return
+
+    s = _soundFiles[name]
+    if s.audioElement
+      _parent.removeChild s.audioElement
+      s.audioElement = null
+      s.stopped = true
+
+  stopAll = =>
+      stop soundName for soundName in _soundFiles
+      return
+
+  register = (name, file) =>
+    if (name of _soundFiles)
+      showError name + " is already registered!"
+      return
+
+    _soundFiles[name] =
+      src: file
+      stopped: true
+      paused: false
+      volume: 0.5
+      audioElement: null
+
+    return
+
+  init: init,
+  isRegistered: isRegistered,
+  register: register,
+  isPaused: isPaused,
+  setVolume: setVolume,
+  increaseVolume: increaseVolume,
+  decreaseVolume: decreaseVolume,
+  play: play,
+  pause: pause,
+  stop: stop,
+  stopAll: stopAll
+)()
