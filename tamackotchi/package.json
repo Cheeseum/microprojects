@@ -1,0 +1,13 @@
+{
+    "name": "Tamackotchi"
+  , "version": "0.0.1"
+  , "description": "Tamackotchi"
+  , "keywords": ["tamackotchi", "coffeescript", "coffee-script"]
+  , "main": "index"
+  , "scripts": {
+    "test": "make test"
+  }
+  , "dependencies":{
+      "coffee-script": ">= 1.2.0"
+  }
+}
