@@ -2,20 +2,18 @@ class @Game
     constructor: (@root) ->
         @world = new World()
 
-        @lovebar = document.getElementById("love-bar")
-        @hungerbar = document.getElementById("hunger-bar")
+        @loveBar = $ "#love-bar"
+        @hungerBar = $ "#hunger-bar"
 
     run: =>
-        @pet = new Creature()
+        @pet = new Creature(this)
         @world.add_creature(@pet)
         @update()
 
     update: =>
         @world.update()
-
-        ### consumes too much cpu
-        @lovebar.style.width = "#{@pet.happiness}%"
-        @hungerbar.style.width = "#{@pet.hunger}%"
-        ###
-        
         @root.setTimeout(@update, 0)
+
+    updateView: (pet) =>
+        @loveBar.css {width: "#{pet.happiness}%"}
+        @hungerBar.css {width: "#{pet.hunger}%"}
