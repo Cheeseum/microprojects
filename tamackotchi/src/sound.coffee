@@ -1,22 +1,23 @@
-sound = (->
+root = exports ? this
 
-  # dictionary of sound files
-  soundFiles = {}
+root.sound =
+    # dictionary of sound files
+    soundFiles: {}
 
-  # element to append the audio files to
-  parent = null
-  showError = (err) ->
-    console.log err
+    # element to append the audio files to
+    parent: null
 
-  sound =
+    showError: (err) ->
+      console.log err
+
     init: (p) ->
       parent = p
 
     isRegistered: (name) ->
-      typeof soundFiles[name] isnt "undefined"
+      soundFiles[name]?
 
     isPaused: (name) ->
-      return soundFiles[name].paused  if sound.isRegistered(name)
+      return soundFiles[name].paused if sound.isRegistered(name)
       false
 
     setVolume: (name, vol) ->
@@ -51,11 +52,12 @@ sound = (->
           s.audioElement.addEventListener "ended", ->
             parent.removeChild this
 
-        s.audioElement = document.createElement("audio")
+        s.audioElement = root.document.createElement("audio")
         s.audioElement.setAttribute "src", s.src
         s.audioElement.volume = s.volume
         s.audioElement.setAttribute "loop", ""  if loop_
         parent.appendChild s.audioElement
+
       s.audioElement.play()
       s.playing = true
       s.paused = false
@@ -94,6 +96,3 @@ sound = (->
         paused: false
         volume: 0.5
         audioElement: null
-
-  sound
-())
