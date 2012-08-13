@@ -1,5 +1,5 @@
 #info-box {
-    width: 96px;
+    width: 128px;
 }
 
 .empty-bar {
@@ -7,6 +7,26 @@
     min-height: 32px;
     background-image: url('img/statusbar.gif');
     background-position: -32px 64px;
+
+    float: right;
+}
+
+#love-icon {
+    max-width: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    background-image: url('img/statusbar.gif');
+    background-position: 0px 0px;
+
+    float: left;
+}
+
+#love-low-icon {
+    max-width: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    background-image: url('img/statusbar.gif');
+    background-position: 0px -32px;
 }
 
 #love-bar {
@@ -22,3 +42,13 @@
     background-image: url('img/statusbar.gif');
     background-position: -32px 32px;
 }
+
+#hunger-icon {
+    max-width: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    background-image: url('img/statusbar.gif');
+    background-position: 0px -64px;
+
+    float: left;
+

@@ -27,4 +27,4 @@ class @Creature
         @world.updateView(this)
 
     update: =>
-        @decreaseHappiness(1)
+        @decreaseHappiness(0.5)
