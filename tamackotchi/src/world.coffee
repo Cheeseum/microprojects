@@ -2,7 +2,7 @@ class @World
     constructor: ->
         @creatures = []
 
-    add_creature: (c) =>
+    addCreature: (c) =>
         @creatures.push(c)
 
     update: =>

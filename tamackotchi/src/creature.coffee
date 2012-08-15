@@ -1,7 +1,9 @@
+constants = @constants
+
 class @Creature
 
     constructor: (@world) ->
-        @status = constants.CreatureStatus.bored
+        @status = constants.CreatureStatus.neutral
         @hunger = constants.maxHunger
         @happiness = constants.maxHappiness / 2
         @age = 0

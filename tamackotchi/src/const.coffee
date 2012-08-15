@@ -1,8 +1,9 @@
 @constants =
     CreatureStatus:
-        bored: 1
-        asleep: 2
-        hungry: 3
+        neutral: 1
+        angry: 2
+        happy: 3
+        sad: 4
 
     maxHunger: 100
     maxHappiness: 100

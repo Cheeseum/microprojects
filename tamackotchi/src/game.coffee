@@ -7,7 +7,7 @@ class @Game
 
     run: =>
         @pet = new Creature(this)
-        @world.add_creature(@pet)
+        @world.addCreature(@pet)
         @update()
 
     update: =>
