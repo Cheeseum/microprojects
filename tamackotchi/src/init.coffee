@@ -1,7 +1,12 @@
 $ =>
 
-  @sound.init($ "#main-container");
+    @sound.init($ "#main-container");
 
-  g = new @Game(this)
-  g.run()
+    g = new @Game(this)
+
+
+    ($ "#feed-pet").click =>
+        g.feedPet {value: 10}
+
+    g.run()
 

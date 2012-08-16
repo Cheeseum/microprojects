@@ -10,6 +10,9 @@ class @Game
         @world.addCreature(@pet)
         @update()
 
+    feedPet: (food) =>
+        @pet.eat(food.value)
+
     update: =>
         @world.update()
         @root.setTimeout(@update, 500)
