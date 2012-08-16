@@ -2,53 +2,47 @@
     width: 128px;
 }
 
-.empty-bar {
-    min-width: 96px;
+/*** bars */
+.status-bar {
+    width: 96px;
     min-height: 32px;
+    
     background-image: url('img/statusbar.gif');
-    background-position: -32px 64px;
+}
 
+.empty-bar {
+    background-position: -32px 64px;
     float: right;
 }
 
-#love-icon {
-    max-width: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    background-image: url('img/statusbar.gif');
-    background-position: 0px 0px;
-
-    float: left;
-}
-
-#love-low-icon {
-    max-width: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    background-image: url('img/statusbar.gif');
-    background-position: 0px -32px;
-}
-
 #love-bar {
-    width: 96px;
-    min-height: 32px;
-    background-image: url('img/statusbar.gif');
     background-position: -32px 0px;
 }
 
 #hunger-bar {
-    width: 96px;
-    min-height: 32px;
-    background-image: url('img/statusbar.gif');
     background-position: -32px 32px;
 }
 
-#hunger-icon {
+/*** icons */
+.icon {
     max-width: 32px;
     min-width: 32px;
     min-height: 32px;
+
     background-image: url('img/statusbar.gif');
-    background-position: 0px -64px;
+}
 
+.love-icon-high {
+    background-position: 0px 0px;
     float: left;
+}
 
+.love-icon-low {
+    background-position: 0px -32px;
+    float: left;
+}
+
+.hunger-icon-high {
+    background-position: 0px -64px;
+    float: left;
+}

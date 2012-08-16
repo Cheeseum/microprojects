@@ -18,15 +18,17 @@ class @Creature
 
     increaseHappiness: (value) =>
         @happiness += value
-        @happiness = constants.maxHappiness if @hunger >= constants.maxHappiness
-
-        @world.updateView(this)
+        if @happiness > contraints.maxHppiness
+            @happiness = constants.maxHappiness
+        else
+            @world.updateView(this)
 
     decreaseHappiness: (value) =>
         @happiness -= value
-        @happiness = 0 if @happiness < 0
-
-        @world.updateView(this)
+        if @happiness < 0
+            @happiness = 0
+        else
+            @world.updateView(this)
 
     update: =>
         @decreaseHappiness(0.5)
