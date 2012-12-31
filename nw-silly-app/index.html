@@ -9,19 +9,37 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row-fluid tabbable tabs-left">
-           <ul id="channel-nav" class="nav nav-tabs">
-                <li class="active"><a href="#channel1" data-toggle="tab">#channel1</a></li>
-                <li><a href="#channel2" data-toggle="tab">#channel2</a></li>
-            </ul>
-            <div class="tab-content conversation">
+        <div class="row-fluid ">
+            <div class="span2 tabbable tabs-left">
+                <ul id="channel-nav" class="nav nav-tabs">
+                    <li class="active"><a href="#channel1" data-toggle="tab">#channel1</a></li>
+                    <li><a href="#channel2" data-toggle="tab">#channel2</a></li>
+                </ul>
+            </div>
+            <div class="tab-content conversation span10">
                 <div class="tab-pane active" id="channel1">
-                    <span class="user-name">Joe</span>
-                    <span class="message-content">Message content</span>
+                    <div class="message">
+                        <span class="message-user">Joe</span>
+                        <span class="message-content">Message content</span>
+                    </div>
+                    <div class="message">
+                        <span class="message-user">Joe</span>
+                        <span class="message-content">Message content</span>
+                    </div>
+                    <div class="message">
+                        <span class="message-user">Joe</span>
+                        <span class="message-content">Message content</span>
+                    </div>
+                    <div class="message">
+                        <span class="message-user">Joe</span>
+                        <span class="message-content">Message content</span>
+                    </div>
                 </div>
                 <div class="tab-pane" id="channel2">
-                    <span class="user-name">Jane</span>
-                    <span class="message-content">Message content 2</span>
+                    <div class="message">
+                        <span class="user-name">Jane</span>
+                        <span class="message-content">Message content 2</span>
+                    </div>
                 </div>
             </div>
         </div>

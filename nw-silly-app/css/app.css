@@ -16,3 +16,21 @@
 .input-bar input[type=text] {
     width: 100%;
 }
+
+.conversation {
+    width: 100%;
+    table-layout: fixed;
+    display: table;
+}
+.message {
+    width: 100%;
+    display: table-row;
+}
+.message-user, .message-content {
+    display: table-cell;
+    max-width: 100%;
+    padding: 0 8px;
+}
+.message-content {
+    width: 100%;
+}
