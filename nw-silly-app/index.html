@@ -2,10 +2,32 @@
 <html>
 <head>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="lib/jquery.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
-
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="conversation span12">
+                <div class="message">
+                    <span class="user-name span1">Joe</span>
+                    <span class="message-content span11">Message content</span>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <div class="input-bar">
+                        <form id="text-form" class="navbar-form pull-left">
+                            <span><input type="text"></span>
+                            <span style="width: 80px;"><button type="submit" class="btn">Send</button></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

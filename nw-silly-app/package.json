@@ -4,6 +4,9 @@
     "window": {
         "toolbar": false,
         "width": 640,
-        "height": 480
+        "height": 480,
+        "min_width": 480,
+        "min_height": 200,
+        "position": "center"
     }
 }

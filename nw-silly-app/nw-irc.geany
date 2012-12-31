@@ -23,8 +23,11 @@ long_line_behaviour=1
 long_line_column=80
 
 [files]
-current_page=0
-FILE_NAME_0=245;HTML;0;16;0;1;0;%2Fhome%2Fandres%2FProjects%2Fmicroprojects%2Fnw-silly-app%2Findex.html;0;4
+current_page=1
+FILE_NAME_0=123568;CSS;0;16;0;1;0;%2Fhome%2Fandres%2FProjects%2Fmicroprojects%2Fnw-silly-app%2Fcss%2Fbootstrap.min.css;0;4
+FILE_NAME_1=861;HTML;0;16;0;1;0;%2Fhome%2Fandres%2FProjects%2Fmicroprojects%2Fnw-silly-app%2Findex.html;0;4
+FILE_NAME_2=48;CSS;0;16;0;1;0;%2Fhome%2Fandres%2FProjects%2Fmicroprojects%2Fnw-silly-app%2Fcss%2Fapp.css;0;4
+FILE_NAME_3=15;None;0;16;0;1;0;%2Fhome%2Fandres%2FProjects%2Fmicroprojects%2Fnw-silly-app%2Fpackage.json;0;4
 
 [VTE]
 last_dir=/home/andres/Projects/microprojects/nw-silly-app
@@ -40,3 +43,9 @@ EX_00_WD=%p
 EX_01_LB=
 EX_01_CM=
 EX_01_WD=
+NF_02_LB=Make _Object
+NF_02_CM=make %e.o
+NF_02_WD=
+NF_03_LB=Execute
+NF_03_CM=nw .
+NF_03_WD=%p

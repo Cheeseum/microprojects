@@ -1,0 +1,19 @@
+.input-bar {
+    width: 100%;
+    table-layout: fixed;
+    display: table;
+}
+.input-bar form {
+    width: 100%;
+    display: table-row;
+}
+.input-bar span {
+    width: 100%;
+    display: table-cell;
+    max-width: 100%;
+    margin: -8px;
+    padding: 8px;
+}
+.input-bar input[type=text] {
+    width: 100%;
+}
