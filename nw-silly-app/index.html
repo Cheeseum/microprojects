@@ -4,20 +4,24 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/app.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span2">
-                <ul class="nav nav-list">
-                    <li><a href="#">#channel1</a></li>
-                </ul>
-            </div>
-            <div class="conversation span10">
-                <div class="message">
-                    <span class="user-name span1">Joe</span>
-                    <span class="message-content span11">Message content</span>
+        <div class="row-fluid tabbable tabs-left">
+           <ul id="channel-nav" class="nav nav-tabs">
+                <li class="active"><a href="#channel1" data-toggle="tab">#channel1</a></li>
+                <li><a href="#channel2" data-toggle="tab">#channel2</a></li>
+            </ul>
+            <div class="tab-content conversation">
+                <div class="tab-pane active" id="channel1">
+                    <span class="user-name">Joe</span>
+                    <span class="message-content">Message content</span>
+                </div>
+                <div class="tab-pane" id="channel2">
+                    <span class="user-name">Jane</span>
+                    <span class="message-content">Message content 2</span>
                 </div>
             </div>
         </div>
