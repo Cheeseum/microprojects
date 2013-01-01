@@ -10,36 +10,10 @@
 <body>
     <div class="container-fluid">
         <div class="row-fluid ">
-            <div class="span2 tabbable tabs-left">
+            <div class="tabbable tabs-left">
                 <ul id="channel-nav" class="nav nav-tabs">
-                    <li class="active"><a href="#channel1" data-toggle="tab">#channel1</a></li>
-                    <li><a href="#channel2" data-toggle="tab">#channel2</a></li>
                 </ul>
-            </div>
-            <div id="channel-tabs" class="tab-content conversation span10">
-                <div class="tab-pane active" id="channel1">
-                    <div class="message">
-                        <span class="message-user">Joe</span>
-                        <span class="message-content">Message content</span>
-                    </div>
-                    <div class="message">
-                        <span class="message-user">Joe</span>
-                        <span class="message-content">Message content</span>
-                    </div>
-                    <div class="message">
-                        <span class="message-user">Joe</span>
-                        <span class="message-content">Message content</span>
-                    </div>
-                    <div class="message">
-                        <span class="message-user">Joe</span>
-                        <span class="message-content">Message content</span>
-                    </div>
-                </div>
-                <div class="tab-pane" id="channel2">
-                    <div class="message">
-                        <span class="user-name">Jane</span>
-                        <span class="message-content">Message content 2</span>
-                    </div>
+                <div id="channel-tabs" class="tab-content conversation">
                 </div>
             </div>
         </div>
@@ -55,6 +29,47 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- menus -->
+    <div id="server-menu" class="modal hidden">
+        <div class="modal-header"><h3>Connect To Server</h3></div>
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label" for="inputServerNickname">Nickname</label>
+                <div class="controls">
+                    <input type="text" id="inputServerNickname" placeholder="Nickname">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputServerAddress">Address</label>
+                <div class="controls">
+                    <input type="text" id="inputServerAddress" placeholder="Address">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputServerPort">Port</label>
+                <div class="controls">
+                    <input type="text" id="inputServerPort" placeholder="Port">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputServerPassword">Password</label>
+                <div class="controls">
+                    <input type="text" id="inputServerPassword" placeholder="Password">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="checkbox">
+                        <input id="checkboxServerSecure" type="checkbox"> SSL?
+                    </label>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-large btn-success">Connect</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>

@@ -5,10 +5,9 @@ ircui = require('nw-irc-ui')
 
 var clients = {};
 
-var nickname = 'Cheeseum';
 var ui = new ircui.ClientUI();
 
-function addServer (server, opts) {
+function addServer (server, nickname, opts) {
     c = new irc.Client(server, nickname, opts);
     ui.initClient(c);
     clients[server] = c;
@@ -19,4 +18,22 @@ function connectToServer (server) {
         clients[server].connect();
 }
 
-//addServer('raspberrypi', { port: 2929, selfSigned: true, secure: true, password: '[REDACTED]' });
+onload = function () {
+    $('#server-menu').fadeIn();
+    // TODO: form validation
+    $('#server-menu').find('button').on('click', function (e) {
+        addServer(
+            $('#inputServerAddress').val(),
+            $('#inputServerNickname').val(),
+            { port: $('#inputServerPort').val(),
+              selfSigned: true,
+              secure: $('#checkboxServerSecure:checked').length,
+              password: $('#inputServerPassword').val()
+            }
+        );
+        $('#server-menu').find('form')[0].reset();
+        $('#server-menu').fadeOut();
+
+        return false;
+    });
+}
